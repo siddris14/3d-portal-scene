@@ -328,8 +328,12 @@ gltfLoader.load(
 		------------------------------*/
 		const timeline = new gsap.timeline({ defaults: { duration: myParams.frames144, ease: myParams.smooth } });
 
-		timeline.from(portal3DScene.scale, { x: 0, y: 0, z: 0 });
-		timeline.from(portal3DScene.rotation, { y: Math.PI * 2 }, "<");
+		const animation = () => {
+			timeline.from(portal3DScene.scale, { x: 0, y: 0, z: 0 });
+			timeline.from(portal3DScene.rotation, { y: Math.PI * 2 }, "<");
+		};
+
+		setTimeout(animation, 3000);
 	}
 );
 
@@ -381,9 +385,12 @@ particles.add(firefliesMaterial.uniforms.uSize, "value").min(0).max(500).step(0.
 Animate Fireflies
 ------------------------------*/
 window.addEventListener("load", () => {
-	const uSize = firefliesMaterial.uniforms.uSize;
+	const uSizeStart = () => {
+		const uSize = firefliesMaterial.uniforms.uSize;
+		gsap.from(uSize, { value: 0, duration: myParams.frames144, ease: myParams.smooth, delay: 1 });
+	};
 
-	gsap.from(uSize, { value: 0, duration: myParams.frames144, ease: myParams.smooth, delay: 1 });
+	setTimeout(uSizeStart, 3000);
 });
 
 /*------------------------------
