@@ -212,7 +212,7 @@ const debugParams = {
 	portalColorEnd: 0xffffff,
 	fogNear: 8,
 	fogFar: 11,
-	loadDelay: 13000,
+	loadDelay: 8000,
 };
 
 /*------------------------------
