@@ -212,6 +212,7 @@ const debugParams = {
 	portalColorEnd: 0xffffff,
 	fogNear: 8,
 	fogFar: 11,
+	loadDelay: 13000,
 };
 
 /*------------------------------
@@ -333,7 +334,7 @@ gltfLoader.load(
 			timeline.from(portal3DScene.rotation, { y: Math.PI * 2 }, "<");
 		};
 
-		setTimeout(animation, 3000);
+		setTimeout(animation, debugParams.loadDelay);
 	}
 );
 
@@ -390,7 +391,7 @@ window.addEventListener("load", () => {
 		gsap.from(uSize, { value: 0, duration: myParams.frames144, ease: myParams.smooth, delay: 1 });
 	};
 
-	setTimeout(uSizeStart, 3000);
+	setTimeout(uSizeStart, debugParams.loadDelay);
 });
 
 /*------------------------------
