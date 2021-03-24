@@ -220,6 +220,11 @@ Main Setup
 ------------------------------*/
 // Canvas
 const canvas = document.querySelector(".webgl");
+const revealCanvas = () => {
+	gsap.set(canvas, { autoAlpha: 1 });
+};
+
+setTimeout(revealCanvas, debugParams.loadDelay);
 
 // Scene
 const scene = new THREE.Scene();
@@ -321,7 +326,12 @@ gltfLoader.load(
 		/*------------------------------
 		Add odels to scene
 		------------------------------*/
-		scene.add(gltf.scene);
+		const addModel = () => {
+			scene.add(gltf.scene);
+		};
+
+		setTimeout(addModel, debugParams.loadDelay);
+
 		const portal3DScene = gltf.scene;
 
 		/*------------------------------
