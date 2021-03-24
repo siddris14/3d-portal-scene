@@ -212,7 +212,7 @@ const debugParams = {
 	portalColorEnd: 0xffffff,
 	fogNear: 8,
 	fogFar: 11,
-	loadDelay: 8500,
+	loadDelay: 8300,
 };
 
 /*------------------------------
@@ -455,6 +455,10 @@ Orbit Controls
 const controls = new THREE.OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.dampingFactor = 0.05;
+
+// Limit vertical orbit
+controls.minPolarAngle = 0;
+controls.maxPolarAngle = Math.PI / 2;
 
 // Debug
 controlCenter.add(controls, "enabled").name("Enable Orbit Control");
